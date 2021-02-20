@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDateTimeProvider.cs" />
+    <Compile Include="Logic\DateTimeProvider.cs" />
     <Compile Include="Logic\IPersonProcessor.cs" />
     <Compile Include="Logic\PersonProcessor.cs" />
     <Compile Include="Models\PersonModel.cs" />

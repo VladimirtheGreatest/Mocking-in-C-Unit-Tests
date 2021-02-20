@@ -1,4 +1,5 @@
-﻿using DemoLibrary.Models;
+﻿using DemoLibrary.Interfaces;
+using DemoLibrary.Models;
 using DemoLibrary.Utilities;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace DemoLibrary.Logic
     public class PersonProcessor : IPersonProcessor
     {
         ISqliteDataAccess _database;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
         public PersonProcessor(ISqliteDataAccess database)
         {
@@ -60,6 +62,11 @@ namespace DemoLibrary.Logic
             var output = _database.LoadData<PersonModel>(sql);
 
             return output;
+        }
+
+        public DateTime WhatIsTheTime()
+        {
+            return _dateTimeProvider.DateTimeNow;
         }
 
         public void SavePerson(PersonModel person)
